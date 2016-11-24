@@ -50,6 +50,36 @@
 
     <string name="sale_enter_sale_amount">Enter Sale Amount</string>
 
+    <string name="tutorial_title_sales">
+        <![CDATA[tutorial<font color=#03A9F4>sales]]>
+    </string>
+    <string name="tutorial_title_void">
+        <![CDATA[tutorial<font color=#03A9F4>void]]>
+    </string>
+    <string name="tutorial_title_test">
+        <![CDATA[tutorial<font color=#03A9F4>test]]>
+    </string>
+    <string name="tutorial_caption_sales">
+        <![CDATA[
+            Enter Sales Amount and click ok.<br/>
+            Tap cards at the back of phone<br/>
+            and wait for approval.<br/>
+        ]]>
+    </string>
+    <string name="tutorial_caption_void">
+        <![CDATA[
+            Select transaction that you wish<br/>
+            to void and press void<br/>
+        ]]>
+    </string>
+    <string name="tutorial_caption_test">
+        <![CDATA[
+            Please switch on your NFC. Tap contactless<br/>
+            card behind your phone until it vibrates.<br/>
+        ]]>
+    </string>
+    <string name="tutorial_btn_done">Done Testing</string>
+
     <string name="sale_slip_payment_made">PAYMENT MADE</string>
     <string name="sale_slip_payment_voided">PAYMENT VOIDED</string>
     <string name="sale_slip_amount">AMOUNT</string>

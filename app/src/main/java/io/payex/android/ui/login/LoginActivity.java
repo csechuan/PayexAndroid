@@ -10,10 +10,12 @@ import butterknife.ButterKnife;
 import io.payex.android.R;
 import io.payex.android.ui.BaseActivity;
 import io.payex.android.ui.MainActivity;
+import io.payex.android.ui.common.TutorialFragment;
+import io.payex.android.ui.common.TutorialSubFragment;
 
 public class LoginActivity extends BaseActivity
         implements LoginFragment.OnFragmentInteractionListener, LoginHelperFragment.OnFragmentInteractionListener,
-SetupFragment.OnFragmentInteractionListener
+SetupFragment.OnFragmentInteractionListener, TutorialSubFragment.OnFragmentInteractionListener
 {
 
     @BindView(R.id.root_container) View mRootView;
@@ -42,7 +44,7 @@ SetupFragment.OnFragmentInteractionListener
 
     @Override
     public void onLoginButtonPressed() {
-        changeFragment(R.id.fragment_container, SetupFragment.newInstance());
+        changeFragment(R.id.fragment_container, TutorialFragment.newInstance());
     }
 
     @Override
@@ -53,6 +55,11 @@ SetupFragment.OnFragmentInteractionListener
     @Override
     public void onSetupCompleted() {
         startActivity(MainActivity.class, true);
+    }
+
+    @Override
+    public void onDonePressed() {
+        changeFragment(R.id.fragment_container, SetupFragment.newInstance());
     }
 }
 
