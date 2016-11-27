@@ -1,4 +1,4 @@
-package io.payex.android.ui.sale.history;
+package io.payex.android.ui.sale.voided;
 
 import android.app.Activity;
 import android.content.Context;
@@ -46,21 +46,15 @@ import io.payex.android.ui.common.ProgressItem;
 
 import static android.content.ContentValues.TAG;
 
-public class SaleHistoryFragment extends Fragment
-//        implements CalendarFragment.OnCalendarInteractionListener
-    implements SearchView.OnQueryTextListener,
+public class VoidFragment extends Fragment
+        implements SearchView.OnQueryTextListener,
         FlexibleAdapter.OnUpdateListener,
         FlexibleAdapter.EndlessScrollListener
 {
 
-    @BindView(R.id.rv_sale_history)
-    RecyclerView mRecyclerView;
-
-    @BindView(R.id.swipe_refresh_layout)
-    SwipeRefreshLayout mSwipeRefreshLayout;
-
-    @BindView(R.id.empty_view)
-    View mEmptyView;
+    @BindView(R.id.rv_sale_history) RecyclerView mRecyclerView;
+    @BindView(R.id.swipe_refresh_layout) SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R.id.empty_view) View mEmptyView;
 
     private OnListFragmentInteractionListener mListener;
     private FlexibleAdapter<IFlexible> mAdapter;
@@ -94,14 +88,14 @@ public class SaleHistoryFragment extends Fragment
 
 
 
-    public static SaleHistoryFragment newInstance() {
-        return new SaleHistoryFragment();
+    public static VoidFragment newInstance() {
+        return new VoidFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_sale_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_void, container, false);
         ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
 
@@ -149,7 +143,7 @@ public class SaleHistoryFragment extends Fragment
         for (int i = 0; i < 25; i++) {
             c.add(Calendar.DATE, -i);
 
-            list.add(new SaleHistoryItem(
+            list.add(new VoidItem(
                     i + 1 + "",
                     d,
                     "Paid RM80.99",

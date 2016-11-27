@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="72dp"
+    android:layout_gravity="center"
+    android:paddingLeft="@dimen/spacing_lg"
+    android:paddingRight="@dimen/spacing_lg">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_mastercard_40dp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="@dimen/spacing_lg"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Paid RM 81.99"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+        android:textSize="16sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_secondary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_primary"
+        android:layout_below="@id/tv_primary"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Ending with 1234"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/spacing_lg"
+        android:text="3 hours ago"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
+
+</RelativeLayout>
