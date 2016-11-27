@@ -30,6 +30,7 @@ import io.payex.android.ui.sale.SaleFragment;
 import io.payex.android.ui.sale.history.SaleHistoryFragment;
 import io.payex.android.ui.sale.history.SaleHistoryItem;
 import io.payex.android.ui.sale.history.SaleSlipActivity;
+import io.payex.android.ui.sale.voided.VoidFragment;
 import me.zhanghai.android.customtabshelper.CustomTabsHelperFragment;
 
 public class MainActivity extends BaseActivity
@@ -99,7 +100,7 @@ public class MainActivity extends BaseActivity
             changeFragment(R.id.fragment_container, SaleFragment.newInstance(), null);
             setTitle(R.string.title_activity_sale);
         } else if (id == R.id.nav_void_transaction) {
-            changeFragment(R.id.fragment_container, SaleHistoryFragment.newInstance(), null);
+            changeFragment(R.id.fragment_container, VoidFragment.newInstance(), null);
             setTitle(R.string.title_activity_void);
         } else if (id == R.id.nav_sale_history) {
             changeFragment(R.id.fragment_container, SaleHistoryFragment.newInstance(), null);
