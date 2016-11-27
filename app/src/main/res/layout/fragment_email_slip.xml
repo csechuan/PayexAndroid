@@ -12,6 +12,16 @@
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:orientation="vertical">
 
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:text="@string/email_slip_headline"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iv_icon"
             android:layout_width="wrap_content"
