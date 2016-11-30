@@ -1,5 +1,6 @@
 package io.payex.android.ui.sale.voided;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
@@ -15,7 +16,6 @@ import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 import eu.davidea.flexibleadapter.items.IFilterable;
 import eu.davidea.viewholders.FlexibleViewHolder;
 import io.payex.android.R;
-import io.payex.android.ui.sale.history.SaleHistoryItem;
 
 public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
         implements IFilterable
@@ -104,6 +104,11 @@ public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
                         mTimestampMs,
                         System.currentTimeMillis(),
                         DateUtils.DAY_IN_MILLIS).toString());
+
+        if (position % 2 == 0) {
+            holder.mView.setBackgroundColor(Color.LTGRAY);
+        }
+
     }
 
     @Override
@@ -117,9 +122,11 @@ public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
         AppCompatTextView mPrimaryView;
         AppCompatTextView mSecondaryView;
         AppCompatTextView mTimestampView;
+        View mView;
 
         VoidItemHolder(View view, FlexibleAdapter adapter) {
             super(view, adapter);
+            mView = view;
             mIconView = (AppCompatImageView) view.findViewById(R.id.iv_icon);
             mPrimaryView = (AppCompatTextView) view.findViewById(R.id.tv_primary);
             mSecondaryView = (AppCompatTextView) view.findViewById(R.id.tv_secondary);
