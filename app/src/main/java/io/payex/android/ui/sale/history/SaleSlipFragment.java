@@ -1,7 +1,6 @@
 package io.payex.android.ui.sale.history;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.payex.android.R;
-import io.payex.android.ui.sale.SaleFragment;
 
 public class SaleSlipFragment extends Fragment {
 
@@ -43,10 +41,10 @@ public class SaleSlipFragment extends Fragment {
         return view;
     }
 
-    @OnClick(R.id.btn_email)
-    public void sendSlip() {
-        mListener.onEmailButtonPressed();
-    }
+//    @OnClick(R.id.btn_email)
+//    public void sendSlip() {
+//        mListener.onEmailButtonPressed();
+//    }
 
     @OnClick(R.id.btn_void)
     public void voidSale() {
