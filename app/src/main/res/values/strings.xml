@@ -123,7 +123,7 @@
     <string name="title_activity_pager">PagerActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_test_reader">TestReaderActivity</string>
-    <string name="title_activity_sale_slip">Sale Slip</string>
+    <string name="title_activity_sale_slip">Sales Slip</string>
     <string name="title_activity_void_slip">Void Slip</string>
     <string name="title_activity_login">Sign in</string>
     <!--<string name="title_activity_main">Payex</string>-->
