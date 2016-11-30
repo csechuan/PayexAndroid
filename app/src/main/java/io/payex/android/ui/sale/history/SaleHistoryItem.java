@@ -1,5 +1,6 @@
 package io.payex.android.ui.sale.history;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
@@ -103,6 +104,10 @@ implements IFilterable
                         mTimestampMs,
                         System.currentTimeMillis(),
                         DateUtils.DAY_IN_MILLIS).toString());
+
+        if (position % 2 == 0) {
+            holder.mView.setBackgroundColor(Color.LTGRAY);
+        }
     }
 
     @Override
@@ -116,9 +121,11 @@ implements IFilterable
         AppCompatTextView mPrimaryView;
         AppCompatTextView mSecondaryView;
         AppCompatTextView mTimestampView;
+        View mView;
 
         SaleHistoryItemHolder(View view, FlexibleAdapter adapter) {
             super(view, adapter);
+            mView = view;
             mIconView = (AppCompatImageView) view.findViewById(R.id.iv_icon);
             mPrimaryView = (AppCompatTextView) view.findViewById(R.id.tv_primary);
             mSecondaryView = (AppCompatTextView) view.findViewById(R.id.tv_secondary);
