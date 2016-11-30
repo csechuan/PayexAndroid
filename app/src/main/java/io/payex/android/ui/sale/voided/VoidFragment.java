@@ -125,13 +125,30 @@ public class VoidFragment extends Fragment
         mAdapter.setEndlessScrollListener(this, new ProgressItem());
         mAdapter.setEndlessScrollThreshold(1);//Default=1
         mAdapter.enableStickyHeaders();
-        mAdapter.setDisplayHeadersAtStartUp(true);
 
         // init swipe
         mSwipeRefreshLayout.setEnabled(true);
         initializeSwipeToRefresh();
 
         return view;
+    }
+
+    /*public void createHeadersSectionsDatabase(int size, int headers) {
+        databaseType = DatabaseType.HEADERS_SECTIONS;
+        HeaderItem header = null;
+        mItems.clear();
+        int lastHeaderId = 0;
+        for (int i = 0; i < size; i++) {
+            header = i % Math.round(size / headers) == 0 ? newHeader(++lastHeaderId) : header;
+            mItems.add(newSimpleItem(i + 1, header));
+        }
+    }*/
+
+    public HeaderItem newHeader(int i) {
+        HeaderItem header = new HeaderItem("H" + i);
+        header.setTitle("Header " + i);
+        //header is hidden and un-selectable by default!
+        return header;
     }
 
     public List<IFlexible> getSaleHistory() {
@@ -142,15 +159,24 @@ public class VoidFragment extends Fragment
 
         Calendar c = Calendar.getInstance();
 
-        for (int i = 0; i < 25; i++) {
+        HeaderItem header = null;
+        int lastHeaderId = 0;
+
+        int size = 25;
+        int headerGroupOf = 5;
+
+        for (int i = 0; i < size; i++) {
             c.add(Calendar.DATE, -i);
+
+            header = i % Math.round(size / headerGroupOf) == 0 ? newHeader(++lastHeaderId) : header;
 
             list.add(new VoidItem(
                     i + 1 + "",
                     d,
                     "Paid RM80.99",
                     "Ending with " + (1234 + i),
-                    c.getTimeInMillis()
+                    c.getTimeInMillis(),
+                    header
             ));
         }
         return list;

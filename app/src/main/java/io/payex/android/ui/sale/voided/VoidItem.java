@@ -12,13 +12,14 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import eu.davidea.flexibleadapter.FlexibleAdapter;
-import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
+import eu.davidea.flexibleadapter.items.AbstractHeaderItem;
 import eu.davidea.flexibleadapter.items.IFilterable;
+import eu.davidea.flexibleadapter.items.ISectionable;
 import eu.davidea.viewholders.FlexibleViewHolder;
 import io.payex.android.R;
 
-public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
-        implements IFilterable
+public class VoidItem extends AbstractHeaderItem<VoidItem.VoidItemHolder>
+        implements IFilterable, ISectionable<VoidItem.VoidItemHolder, HeaderItem>
 {
 
     private String mId;
@@ -26,6 +27,7 @@ public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
     private String mPrimaryText;
     private String mSecondaryText;
     private long mTimestampMs;
+    HeaderItem header;
 
     public String getPrimaryText() {
         return mPrimaryText;
@@ -39,12 +41,15 @@ public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
         return mTimestampMs;
     }
 
-    VoidItem(String id, Drawable icon, String primary, String secondary, long timestamp) {
+    VoidItem(String id, Drawable icon, String primary, String secondary, long timestamp, HeaderItem header) {
         this.mId = id;
         this.mIcon = icon;
         this.mPrimaryText = primary;
         this.mSecondaryText = secondary;
         this.mTimestampMs = timestamp;
+        this.header = header;
+        setHidden(false);
+        setSelectable(false);
     }
 
     /**
@@ -114,6 +119,16 @@ public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
     @Override
     public boolean filter(String constraint) {
         return mSecondaryText.contains(constraint);
+    }
+
+    @Override
+    public HeaderItem getHeader() {
+        return header;
+    }
+
+    @Override
+    public void setHeader(HeaderItem header) {
+        this.header = header;
     }
 
     class VoidItemHolder extends FlexibleViewHolder {
