@@ -31,11 +31,14 @@ import io.payex.android.ui.sale.history.SaleHistoryFragment;
 import io.payex.android.ui.sale.history.SaleHistoryItem;
 import io.payex.android.ui.sale.history.SaleSlipActivity;
 import io.payex.android.ui.sale.voided.VoidFragment;
+import io.payex.android.ui.sale.voided.VoidItem;
+import io.payex.android.ui.sale.voided.VoidSlipActivity;
 import me.zhanghai.android.customtabshelper.CustomTabsHelperFragment;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         SaleHistoryFragment.OnListFragmentInteractionListener,
+        VoidFragment.OnListFragmentInteractionListener,
         SaleFragment.OnFragmentInteractionListener,
         AboutFragment.OnFragmentInteractionListener
 {
@@ -168,5 +171,14 @@ public class MainActivity extends BaseActivity
     public void onTutorialClicked() {
         // todo add tutorial page
         Snackbar.make(mDrawer, "Under construction", Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onVoidItemClicked(IFlexible item) {
+        if (item instanceof VoidItem) {
+            VoidItem voidItem = (VoidItem) item;
+            Log.i(getLocalClassName(), voidItem.getPrimaryText());
+            startActivity(VoidSlipActivity.class, false);
+        }
     }
 }

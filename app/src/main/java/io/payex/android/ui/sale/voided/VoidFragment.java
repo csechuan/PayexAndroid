@@ -30,11 +30,11 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -111,7 +111,7 @@ public class VoidFragment extends Fragment
         mAdapter.initializeListeners(new FlexibleAdapter.OnItemClickListener() {
             @Override
             public boolean onItemClick(int position) {
-                mListener.onListFragmentInteraction(saleHistory.get(position));
+                mListener.onVoidItemClicked(saleHistory.get(position));
                 return false;
             }
         });
@@ -119,11 +119,13 @@ public class VoidFragment extends Fragment
         //Initialize the RecyclerView and attach the Adapter to it as usual
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.setHasFixedSize(true);
 
         //EndlessScrollListener - OnLoadMore (v5.0.0)
         mAdapter.setEndlessScrollListener(this, new ProgressItem());
         mAdapter.setEndlessScrollThreshold(1);//Default=1
-
+        mAdapter.enableStickyHeaders();
+        mAdapter.setDisplayHeadersAtStartUp(true);
 
         // init swipe
         mSwipeRefreshLayout.setEnabled(true);
@@ -172,7 +174,7 @@ public class VoidFragment extends Fragment
     }
 
     public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(IFlexible item);
+        void onVoidItemClicked(IFlexible item);
     }
 
 
@@ -232,7 +234,7 @@ public class VoidFragment extends Fragment
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        Log.v("SaleHistory", "onQueryTextSubmit called!");
+        Log.i("SaleHistory", "onQueryTextSubmit called!");
         return onQueryTextChange(query);
     }
 
@@ -316,7 +318,7 @@ public class VoidFragment extends Fragment
                 final List<IFlexible> newItems = new ArrayList<>();
 
                 //Simulating success/failure
-                int count = new Random().nextInt(5);
+                int count = new SecureRandom().nextInt(5);
                 int totalItemsOfType = mAdapter.getItemCountOfTypes(R.layout.fragment_sale_history_item);
                 List<IFlexible> fakeItems = getSaleHistory();
                 for (int i = 1; i <= count; i++) {
