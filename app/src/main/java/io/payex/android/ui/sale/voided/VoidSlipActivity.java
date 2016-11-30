@@ -10,11 +10,10 @@ import io.payex.android.R;
 import io.payex.android.ui.BaseActivity;
 import io.payex.android.ui.common.StateFragment;
 import io.payex.android.ui.sale.EmailSlipActivity;
-import io.payex.android.ui.sale.history.SaleSlipFragment;
 import io.payex.android.ui.sale.history.SaleVoidFragment;
 
 public class VoidSlipActivity extends BaseActivity
-        implements SaleSlipFragment.OnFragmentInteractionListener,
+        implements VoidSlipFragment.OnFragmentInteractionListener,
         SaleVoidFragment.OnFragmentInteractionListener,
         StateFragment.OnFragmentInteractionListener {
 
