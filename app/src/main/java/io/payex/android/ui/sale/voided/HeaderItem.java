@@ -1,6 +1,5 @@
 package io.payex.android.ui.sale.voided;
 
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -125,9 +124,9 @@ public class HeaderItem extends AbstractHeaderItem<HeaderItem.HeaderViewHolder> 
 //            }
 
             //Support for StaggeredGridLayoutManager
-            if (itemView.getLayoutParams() instanceof StaggeredGridLayoutManager.LayoutParams) {
-                ((StaggeredGridLayoutManager.LayoutParams) itemView.getLayoutParams()).setFullSpan(true);
-            }
+//            if (itemView.getLayoutParams() instanceof StaggeredGridLayoutManager.LayoutParams) {
+//                ((StaggeredGridLayoutManager.LayoutParams) itemView.getLayoutParams()).setFullSpan(true);
+//            }
         }
     }
 

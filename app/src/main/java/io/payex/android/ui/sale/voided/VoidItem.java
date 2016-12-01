@@ -12,13 +12,13 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import eu.davidea.flexibleadapter.FlexibleAdapter;
-import eu.davidea.flexibleadapter.items.AbstractHeaderItem;
+import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 import eu.davidea.flexibleadapter.items.IFilterable;
 import eu.davidea.flexibleadapter.items.ISectionable;
 import eu.davidea.viewholders.FlexibleViewHolder;
 import io.payex.android.R;
 
-public class VoidItem extends AbstractHeaderItem<VoidItem.VoidItemHolder>
+public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
         implements IFilterable, ISectionable<VoidItem.VoidItemHolder, HeaderItem>
 {
 

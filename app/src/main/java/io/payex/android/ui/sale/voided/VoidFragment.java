@@ -15,11 +15,11 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.text.InputType;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -118,13 +118,27 @@ public class VoidFragment extends Fragment
 
         //Initialize the RecyclerView and attach the Adapter to it as usual
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+//        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setHasFixedSize(true);
 
         //EndlessScrollListener - OnLoadMore (v5.0.0)
         mAdapter.setEndlessScrollListener(this, new ProgressItem());
         mAdapter.setEndlessScrollThreshold(1);//Default=1
-        mAdapter.enableStickyHeaders();
+
+        mAdapter
+//                .setLongPressDragEnabled(true)
+//                .setHandleDragEnabled(true)
+//                .setSwipeEnabled(true)
+                .setUnlinkAllItemsOnRemoveHeaders(true)
+                //Show Headers at startUp, 1st call, correctly executed, no warning log message!
+                .setDisplayHeadersAtStartUp(true)
+                .enableStickyHeaders()
+//                //Simulate developer 2nd call mistake, now it's safe, not executed, no warning log message!
+//                .setDisplayHeadersAtStartUp(true)
+//                //Simulate developer 3rd call mistake, still safe, not executed, warning log message displayed!
+//                .showAllHeaders()
+        ;
+
 
         // init swipe
         mSwipeRefreshLayout.setEnabled(true);
@@ -144,9 +158,9 @@ public class VoidFragment extends Fragment
         }
     }*/
 
-    public HeaderItem newHeader(int i) {
-        HeaderItem header = new HeaderItem("H" + i);
-        header.setTitle("Header " + i);
+    public HeaderItem newHeader(String i) {
+        HeaderItem header = new HeaderItem(i);
+        header.setTitle(i);
         //header is hidden and un-selectable by default!
         return header;
     }
@@ -168,7 +182,11 @@ public class VoidFragment extends Fragment
         for (int i = 0; i < size; i++) {
             c.add(Calendar.DATE, -i);
 
-            header = i % Math.round(size / headerGroupOf) == 0 ? newHeader(++lastHeaderId) : header;
+//            header = i % Math.round(size / headerGroupOf) == 0 ? newHeader(++lastHeaderId) : header;
+            header = newHeader(DateUtils.getRelativeTimeSpanString(
+                    c.getTimeInMillis(),
+                    System.currentTimeMillis(),
+                    DateUtils.DAY_IN_MILLIS).toString());
 
             list.add(new VoidItem(
                     i + 1 + "",
@@ -279,7 +297,7 @@ public class VoidFragment extends Fragment
             @Override
             public void onRefresh() {
                 //Passing true as parameter we always animate the changes between the old and the new data set
-                mAdapter.updateDataSet(getSaleHistory(), true);
+//                mAdapter.updateDataSet(getSaleHistory(), true);
                 mSwipeRefreshLayout.setEnabled(false);
 
                 // todo refresh here
