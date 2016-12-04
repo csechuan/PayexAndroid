@@ -12,6 +12,7 @@ import io.payex.android.ui.BaseActivity;
 import io.payex.android.ui.MainActivity;
 import io.payex.android.ui.common.TutorialFragment;
 import io.payex.android.ui.common.TutorialSubFragment;
+import io.payex.android.ui.register.RegisterActivity;
 
 public class LoginActivity extends BaseActivity
         implements LoginFragment.OnFragmentInteractionListener, LoginHelperFragment.OnFragmentInteractionListener,
@@ -38,8 +39,8 @@ SetupFragment.OnFragmentInteractionListener, TutorialSubFragment.OnFragmentInter
 
     @Override
     public void onRegisterButtonPressed() {
-        // todo register page
-        Snackbar.make(mRootView, "Register page under construction", Snackbar.LENGTH_LONG).show();
+//        Snackbar.make(mRootView, "Register page under construction", Snackbar.LENGTH_LONG).show();
+        startActivity(RegisterActivity.class);
     }
 
     @Override
