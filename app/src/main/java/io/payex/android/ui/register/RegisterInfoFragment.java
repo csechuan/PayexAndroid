@@ -1,4 +1,4 @@
-package io.payex.android.ui.login;
+package io.payex.android.ui.register;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

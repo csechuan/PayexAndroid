@@ -1,4 +1,4 @@
-package io.payex.android.ui.login;
+package io.payex.android.ui.register;
 
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageView;

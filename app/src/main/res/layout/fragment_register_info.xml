@@ -31,7 +31,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         app:layoutManager="LinearLayoutManager"
-        tools:context=".ui.login.RegisterInfoFragment"
+        tools:context=".ui.register.RegisterInfoFragment"
         tools:listitem="@layout/fragment_register_info_item" />
 
     <android.support.v7.widget.AppCompatTextView
