@@ -78,12 +78,12 @@ public class RegisterInfoFragment extends Fragment {
 //                        // long clicked
 //                    }
 //                })
-//                .setOnClickListener(new Link.OnClickListener() {
-//                    @Override
-//                    public void onClick(String clickedText) {
-//                        // single clicked
-//                    }
-//                })
+                .setOnClickListener(new Link.OnClickListener() {
+                    @Override
+                    public void onClick(String clickedText) {
+                        mListener.onRegisterPressed();
+                    }
+                })
                 ;
 
         // create the link builder object add the link rule
@@ -130,5 +130,28 @@ public class RegisterInfoFragment extends Fragment {
     public void done() {
         getActivity().onBackPressed();
 //        mListener.onRegisterOkPressed();
+    }
+
+    private  OnFragmentInteractionListener mListener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    public interface OnFragmentInteractionListener {
+        void onRegisterPressed();
     }
 }

@@ -126,6 +126,22 @@
     <string name="register_info_teaser2">Request to try.</string>
     <string name="register_info_btn_ok">Okay</string>
 
+    <string name="register_form_btn_cancel">Cancel</string>
+    <string name="register_form_btn_done">Done</string>
+    <string name="register_form_title">Sign Up</string>
+    <string name="register_form_desc">
+        <![CDATA[
+            Enter your details below and<br/>
+            we will add your preferred banks<br/>
+            when there are enough interest.
+        ]]>
+    </string>
+    <string name="register_form_name">Name</string>
+    <string name="register_form_email">Email</string>
+    <string name="register_form_country">Country</string>
+    <string name="register_form_preferred_bank">Preferred bank</string>
+    <string name="register_form_phone_number">+Phone Number</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
