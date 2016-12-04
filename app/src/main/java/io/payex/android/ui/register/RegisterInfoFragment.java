@@ -61,7 +61,7 @@ public class RegisterInfoFragment extends Fragment {
         String teaser1 = getString(R.string.register_info_teaser1);
         String teaser2 = getString(R.string.register_info_teaser2);
 
-        String displayText = teaser1 + teaser2;
+        String displayText = teaser1 + " " + teaser2;
         mCaptionTextView.setText(displayText);
 
         // Create the link rule to set what text should be linked.
