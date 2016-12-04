@@ -51,6 +51,7 @@ dependencies {
     // compile 'me.grantland:autofittextview:0.2.+'
     compile 'com.bignerdranch.android:simple-item-decoration:1.0.0'
     compile 'com.squareup:android-times-square:1.6.5@aar'
+    compile 'com.klinkerapps:link_builder:1.5.0'
 
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.easing:library:1.0.1@aar'

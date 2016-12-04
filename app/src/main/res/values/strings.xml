@@ -115,6 +115,17 @@
     <string name="sale_history_menu_calendar">Calendar</string>
     <string name="sale_history_menu_search">Search</string>
 
+    <string name="register_info_title">Sign Up</string>
+    <string name="register_info_desc">
+        <![CDATA[
+            Please contact any of our bank partners<br/>
+            below for account sign up.
+        ]]>
+    </string>
+    <string name="register_info_teaser1">Don\'t see your bank? </string>
+    <string name="register_info_teaser2">Request to try.</string>
+    <string name="register_info_btn_ok">Okay</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
