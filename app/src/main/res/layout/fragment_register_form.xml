@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:text="@string/register_form_title" />
+        android:text="@string/register_form_title" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_title"
