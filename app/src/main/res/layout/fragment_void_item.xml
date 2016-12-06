@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="72dp"
-    android:layout_gravity="center"
     android:paddingLeft="@dimen/spacing_lg"
     android:paddingRight="@dimen/spacing_lg">
 
@@ -15,37 +14,44 @@
         android:layout_centerVertical="true"
         app:srcCompat="@drawable/ic_mastercard_40dp" />
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tv_primary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="72dp"
-        android:layout_marginTop="@dimen/spacing_md"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="03:12"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-        android:textSize="16sp" />
+        android:layout_marginRight="@dimen/spacing_sm"
+        android:layout_toLeftOf="@id/tv_timestamp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tv_secondary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/tv_primary"
-        android:layout_below="@id/tv_primary"
-        android:layout_marginTop="@dimen/spacing_md"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="RM 80.00"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="03:12"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textSize="16sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="RM 80.00"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
+
+    </LinearLayout>
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="@dimen/spacing_md"
+        android:layout_centerVertical="true"
         android:text="@string/sale_history_card_ending"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption" />
 
