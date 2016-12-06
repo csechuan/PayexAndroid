@@ -114,6 +114,12 @@
 
     <string name="sale_history_menu_calendar">Calendar</string>
     <string name="sale_history_menu_search">Search</string>
+    <string name="sale_history_card_ending">
+        <![CDATA[
+            Ending<br/>
+            <b>6536</b>
+        ]]>
+    </string>
 
     <string name="register_info_title">Sign Up</string>
     <string name="register_info_desc">

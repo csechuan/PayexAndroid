@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import eu.davidea.flexibleadapter.items.IFilterable;
 import eu.davidea.flexibleadapter.items.ISectionable;
 import eu.davidea.viewholders.FlexibleViewHolder;
 import io.payex.android.R;
+import io.payex.android.util.HtmlCompat;
 
 public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
         implements IFilterable, ISectionable<VoidItem.VoidItemHolder, HeaderItem>
@@ -28,6 +28,7 @@ public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
     private String mSecondaryText;
     private long mTimestampMs;
     HeaderItem header;
+    private String card;
 
     public String getPrimaryText() {
         return mPrimaryText;
@@ -41,7 +42,7 @@ public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
         return mTimestampMs;
     }
 
-    VoidItem(String id, Drawable icon, String primary, String secondary, long timestamp, HeaderItem header) {
+    VoidItem(String id, Drawable icon, String primary, String secondary, long timestamp, HeaderItem header, String card) {
         this.mId = id;
         this.mIcon = icon;
         this.mPrimaryText = primary;
@@ -50,6 +51,7 @@ public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
         this.header = header;
         setHidden(false);
         setSelectable(false);
+        this.card = card;
     }
 
     /**
@@ -104,11 +106,13 @@ public class VoidItem extends AbstractFlexibleItem<VoidItem.VoidItemHolder>
         holder.mIconView.setImageDrawable(mIcon);
         holder.mPrimaryView.setText(mPrimaryText);
         holder.mSecondaryView.setText(mSecondaryText);
-        holder.mTimestampView.setText(
-                DateUtils.getRelativeTimeSpanString(
-                        mTimestampMs,
-                        System.currentTimeMillis(),
-                        DateUtils.DAY_IN_MILLIS).toString());
+
+        HtmlCompat.setSpannedText(holder.mTimestampView, card);
+//        holder.mTimestampView.setText(
+//                DateUtils.getRelativeTimeSpanString(
+//                        mTimestampMs,
+//                        System.currentTimeMillis(),
+//                        DateUtils.DAY_IN_MILLIS).toString());
 
         if (position % 2 == 0) {
             holder.mView.setBackgroundColor(Color.LTGRAY);

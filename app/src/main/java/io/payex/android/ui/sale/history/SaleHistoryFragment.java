@@ -152,9 +152,10 @@ public class SaleHistoryFragment extends Fragment
             list.add(new SaleHistoryItem(
                     i + 1 + "",
                     d,
-                    "Paid RM80.99",
-                    "Ending with " + (1234 + i),
-                    c.getTimeInMillis()
+                    "03:12",
+                    "RM 30.00",
+                    c.getTimeInMillis(),
+                    getString(R.string.sale_history_card_ending)
             ));
         }
         return list;

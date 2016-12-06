@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
-import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,7 @@ import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 import eu.davidea.flexibleadapter.items.IFilterable;
 import eu.davidea.viewholders.FlexibleViewHolder;
 import io.payex.android.R;
+import io.payex.android.util.HtmlCompat;
 
 public class SaleHistoryItem extends AbstractFlexibleItem<SaleHistoryItem.SaleHistoryItemHolder>
 implements IFilterable
@@ -26,6 +26,7 @@ implements IFilterable
     private String mPrimaryText;
     private String mSecondaryText;
     private long mTimestampMs;
+    private String card;
 
     public String getPrimaryText() {
         return mPrimaryText;
@@ -39,12 +40,13 @@ implements IFilterable
         return mTimestampMs;
     }
 
-    SaleHistoryItem(String id, Drawable icon, String primary, String secondary, long timestamp) {
+    SaleHistoryItem(String id, Drawable icon, String primary, String secondary, long timestamp, String card) {
         this.mId = id;
         this.mIcon = icon;
         this.mPrimaryText = primary;
         this.mSecondaryText = secondary;
         this.mTimestampMs = timestamp;
+        this.card = card;
     }
 
     /**
@@ -99,11 +101,14 @@ implements IFilterable
         holder.mIconView.setImageDrawable(mIcon);
         holder.mPrimaryView.setText(mPrimaryText);
         holder.mSecondaryView.setText(mSecondaryText);
-        holder.mTimestampView.setText(
-                DateUtils.getRelativeTimeSpanString(
-                        mTimestampMs,
-                        System.currentTimeMillis(),
-                        DateUtils.DAY_IN_MILLIS).toString());
+
+
+        HtmlCompat.setSpannedText(holder.mTimestampView, card);
+//        holder.mTimestampView.setText(
+//                DateUtils.getRelativeTimeSpanString(
+//                        mTimestampMs,
+//                        System.currentTimeMillis(),
+//                        DateUtils.DAY_IN_MILLIS).toString());
 
         if (position % 2 == 0) {
             holder.mView.setBackgroundColor(Color.LTGRAY);

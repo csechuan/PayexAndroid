@@ -191,10 +191,11 @@ public class VoidFragment extends Fragment
             list.add(new VoidItem(
                     i + 1 + "",
                     d,
-                    "Paid RM80.99",
-                    "Ending with " + (1234 + i),
+                    "03:12",
+                    "RM 30.00",
                     c.getTimeInMillis(),
-                    header
+                    header,
+                    getString(R.string.sale_history_card_ending)
             ));
         }
         return list;
