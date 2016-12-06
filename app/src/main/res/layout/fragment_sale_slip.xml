@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/spacing_md"
     tools:context=".ui.sale.history.SaleSlipFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/activity_horizontal_margin"
         android:orientation="vertical">
 
         <android.support.v7.widget.CardView
@@ -66,10 +66,10 @@
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="?android:attr/listDivider" />-->
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -211,56 +211,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:text="Resend Slip" />
-
-        <!--<android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_void"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_lg"
-            android:text="@string/sale_slip_btn_void" />
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/cv_sale_void"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:cardCornerRadius="4dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/spacing_lg">
-
-                    <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/tv_payment_voided"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="@dimen/spacing_md"
-                        android:text="@string/sale_slip_payment_voided"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
-
-                    <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/tv_payment_voided_value"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:gravity="right"
-                        android:maxLines="1"
-                        android:text="2016/10/20 15:00"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>-->
 
     </LinearLayout>
 
