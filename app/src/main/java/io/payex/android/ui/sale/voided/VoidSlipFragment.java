@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.payex.android.R;
-import io.payex.android.ui.sale.history.SaleSlipFragment;
 
 public class VoidSlipFragment extends Fragment {
 
@@ -42,11 +41,6 @@ public class VoidSlipFragment extends Fragment {
         return view;
     }
 
-    @OnClick(R.id.btn_email)
-    public void sendSlip() {
-        mListener.onEmailButtonPressed();
-    }
-
     @OnClick(R.id.btn_void)
     public void voidSale() {
         mListener.onVoidButtonPressed();
@@ -70,7 +64,6 @@ public class VoidSlipFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void onEmailButtonPressed();
         void onVoidButtonPressed();
     }
 }

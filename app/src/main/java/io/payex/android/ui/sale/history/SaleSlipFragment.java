@@ -41,15 +41,15 @@ public class SaleSlipFragment extends Fragment {
         return view;
     }
 
-//    @OnClick(R.id.btn_email)
-//    public void sendSlip() {
-//        mListener.onEmailButtonPressed();
-//    }
-
-    @OnClick(R.id.btn_void)
-    public void voidSale() {
-        mListener.onVoidButtonPressed();
+    @OnClick(R.id.btn_email)
+    public void sendSlip() {
+        mListener.onEmailButtonPressed();
     }
+
+//    @OnClick(R.id.btn_void)
+//    public void voidSale() {
+//        mListener.onVoidButtonPressed();
+//    }
 
     @Override
     public void onAttach(Context context) {
@@ -70,6 +70,6 @@ public class SaleSlipFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         void onEmailButtonPressed();
-        void onVoidButtonPressed();
+//        void onVoidButtonPressed();
     }
 }

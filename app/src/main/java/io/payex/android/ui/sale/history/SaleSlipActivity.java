@@ -37,11 +37,11 @@ public class SaleSlipActivity extends BaseActivity
         startActivity(EmailSlipActivity.class, false);
     }
 
-    @Override
-    public void onVoidButtonPressed() {
-        SaleVoidFragment f = new SaleVoidFragment();
-        f.show(getSupportFragmentManager(), f.getTag());
-    }
+//    @Override
+//    public void onVoidButtonPressed() {
+//        SaleVoidFragment f = new SaleVoidFragment();
+//        f.show(getSupportFragmentManager(), f.getTag());
+//    }
 
     @Override
     public void onConfirmVoidButtonPressed() {
