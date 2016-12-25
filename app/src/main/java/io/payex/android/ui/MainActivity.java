@@ -21,6 +21,7 @@ import butterknife.BindColor;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import eu.davidea.flexibleadapter.items.IFlexible;
+import icepick.State;
 import io.payex.android.R;
 import io.payex.android.ui.about.AboutFragment;
 import io.payex.android.ui.account.MyAccountFragment;
@@ -66,6 +67,8 @@ public class MainActivity extends BaseActivity
     private CustomTabsHelperFragment mCustomTabsHelperFragment;
     private CustomTabsIntent mCustomTabsIntent;
 
+    @State int itemId = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,8 +84,8 @@ public class MainActivity extends BaseActivity
         mNavView.setNavigationItemSelectedListener(this);
 
         // select the default
-        onNavigationItemSelected(mNavView.getMenu().getItem(0));
-        mNavView.setCheckedItem(mNavView.getMenu().getItem(0).getItemId());
+        onNavigationItemSelected(mNavView.getMenu().getItem(itemId));
+        mNavView.setCheckedItem(mNavView.getMenu().getItem(itemId).getItemId());
     }
 
     @Override
@@ -102,18 +105,23 @@ public class MainActivity extends BaseActivity
         if (id == R.id.nav_sale) {
             changeFragment(R.id.fragment_container, SaleFragment.newInstance(), null);
             setTitle(R.string.title_activity_sale);
+            itemId = 0;
         } else if (id == R.id.nav_void_transaction) {
             changeFragment(R.id.fragment_container, VoidFragment.newInstance(), null);
             setTitle(R.string.title_activity_void);
+            itemId = 1;
         } else if (id == R.id.nav_sale_history) {
             changeFragment(R.id.fragment_container, SaleHistoryFragment.newInstance(), null);
             setTitle(R.string.title_activity_sale_history);
+            itemId = 2;
         } else if (id == R.id.nav_account) {
             changeFragment(R.id.fragment_container, MyAccountFragment.newInstance(), null);
             setTitle(R.string.title_activity_my_account);
+            itemId = 3;
         } else if (id == R.id.nav_about) {
             changeFragment(R.id.fragment_container, AboutFragment.newInstance(), AboutFragment.TAG);
             setTitle(R.string.title_activity_about);
+            itemId = 4;
         } else if (id == R.id.nav_logout) {
             // todo clear all the cache before logout
             startActivity(LoginActivity.class, true);
