@@ -1,6 +1,7 @@
 package io.payex.android.ui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -8,10 +9,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
+import icepick.Icepick;
 import io.payex.android.R;
 
 
 public class BaseActivity extends AppCompatActivity {
+
+    @Override public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Icepick.restoreInstanceState(this, savedInstanceState);
+    }
+
+    @Override public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Icepick.saveInstanceState(this, outState);
+    }
 
     protected void setBackButton() {
         if (getSupportActionBar() != null) {
